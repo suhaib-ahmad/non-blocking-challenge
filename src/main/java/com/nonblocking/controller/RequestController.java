@@ -37,8 +37,8 @@ public class RequestController {
   @GetMapping(value = ACCEPT_URL)
   public CompletableFuture<ResponseEntity<String>> accept(AcceptPayload payload) {
 
-    if(payload.getId()==0)
-      payload.setId(random.nextInt(MAX_RAND_MILLION));
+    /*if(payload.getId()==0)
+      payload.setId(random.nextInt(MAX_RAND_MILLION));*/
 
     log.info("REQ_RECV :: {}", payload);
     return CompletableFuture.supplyAsync(() -> requestService.processRequest(payload), asyncRequestExecutor)
